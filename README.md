@@ -1,1 +1,6 @@
+As part of my Active Directory Home Lab, I created a PowerShell script to automate user account creation by importing data from a CSV file. To make it more dynamic, the script also assigns each user to the correct security group based on their role. This project was a great opportunity to apply automation in a real-world scenario and sharpen my programming skills along the way. For troubleshooting and development, I relied primarily on Microsoft’s official documentation and reference code to finalize the script.
 
+Blog Documentation: https://medium.com/@gabriel.walkerzuniga/scripting-active-directory-bulk-user-deployment-with-security-group-assignment-5c6fbfb07c7c
+
+Code Overview:
+The script reads user data from a locally stored CSV file using the Import-Csv function, then loops through each entry. For every user, the script checks their job description and builds a parameter set using splatting to organize their unique identifiers. Depending on the user's role, attributes like OU path and description are dynamically assigned. Once the account is created, the user is automatically added to a corresponding security group with pre-configured GPOs. If a user’s description isn’t within scope, the account is placed in a “Manual Assignment” OU for easy review and management by an administrator.
